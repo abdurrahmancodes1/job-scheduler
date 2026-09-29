@@ -1,0 +1,13 @@
+node_modules/
+.env
+.env.*
+!.env.example
+
+client/node_modules/
+client/dist/
+dist/
+
+npm-debug.log*
+*.log
+
+.DS_Store

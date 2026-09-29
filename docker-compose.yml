@@ -1,0 +1,47 @@
+services:
+  api:
+    build:
+      context: .
+      target: backend
+    command: npm run api
+    env_file:
+      - .env
+    ports:
+      - "4000:4000"
+
+  scheduler:
+    build:
+      context: .
+      target: backend
+    command: npm run scheduler
+    env_file:
+      - .env
+
+  worker-1:
+    build:
+      context: .
+      target: backend
+    command: npm run worker
+    env_file:
+      - .env
+    environment:
+      CONSUMER_NAME: worker-1
+
+  worker-2:
+    build:
+      context: .
+      target: backend
+    command: npm run worker
+    env_file:
+      - .env
+    environment:
+      CONSUMER_NAME: worker-2
+
+  frontend:
+    build:
+      context: .
+      target: frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - api

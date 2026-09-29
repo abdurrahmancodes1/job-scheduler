@@ -1,0 +1,25 @@
+{
+  "name": "distributed-job-engine",
+  "version": "1.0.0",
+  "description": "Distributed job scheduler and worker engine",
+  "main": "src/api/server.js",
+  "scripts": {
+    "api": "node src/api/server.js",
+    "scheduler": "node src/scheduler/scheduler.js",
+    "worker": "node src/worker/worker.js",
+    "dev": "concurrently \"npm run api\" \"npm run scheduler\" \"npm run worker\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "mongoose": "^9.9.5",
+    "redis": "^6.2.1"
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.5"
+  }
+}
